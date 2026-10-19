@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-primary: #FFFFFF;
+    --color-text-primary: #111111;
+    --color-accent: #E53935;
+    --color-bg-secondary: #F5F5F5;
+    --color-text-secondary: #666666;
+    --color-border: #E5E5E5;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #111111;
+    overflow-x: hidden;
+  }
+
+  /* Custom focus outline */
+  *:focus-visible {
+    outline: 2px solid #E53935;
+    outline-offset: 3px;
+  }
+}
+
+/* Custom Interactive Cursor Follower styles */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    will-change: transform, width, height;
+    transition: transform 0.08s ease-out, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .custom-cursor-follower {
+    display: none !important;
+  }
+}
+
+/* Subtle grid line background for hero */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
